@@ -1,0 +1,675 @@
+@media screen and (min-width: 769px) and (max-width: 1199px){
+  /*----- 2.0 Accessibility -----*/
+  $grid_content: 768px;
+  $primari_margin: 50px;
+  $title_marg_bottom: 10px;
+  $color_violet: #5f306e;
+
+  @mixin title {
+    &::before {
+      width: 30%;
+      border-width: 1px;
+    }
+    &::after {
+      width: 30%;
+      border-width: 1px;
+    }
+  }
+  @mixin privileg-blocks {
+    margin: 0;
+    > div {
+      width: 360px;
+      ul {
+        li {
+          padding-left: 30px;
+          font-size: 16px;
+          &::before {
+            width: 20px;
+            height: 13px;
+          }
+        }
+      }
+    }
+  }
+  .overflow-hidden {
+    overflow: auto;
+    height: 100%;
+  }
+  /*----- 4.01 Header -----*/
+  header {
+    max-width: $grid_content;
+    nav {
+      a {
+        font-size: 14px;
+        white-space: nowrap;
+        &:not(:last-child) {
+          margin-right: 28px;
+        }
+      }
+    }
+  }
+
+  /*----- fixed menu -----*/
+  header {
+    max-width: $grid_content;
+    .logo-wrapper {
+      height: 64px;
+      margin-bottom: 16px;
+      img {
+        height: 100%;
+        width: auto;
+        margin: 0 auto;
+      }
+    }
+    .mobile-fixed-wrapper.fixed {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: #ffffff;
+      z-index: 50;
+      box-shadow: 0 3px 15.04px 0.96px rgba(0, 1, 0, 0.32);
+      .menu {
+        width: 748px;
+        margin: 0 auto;
+        padding: 10px 0;
+        .logo-wrapper {
+          display: block;
+          z-index: 50;
+          margin: 0;
+        }
+        .languege-toggle {
+          display: none;
+          z-index: 50;
+        }
+      }
+    }
+    .menu {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &.active {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 50;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: rgba(78, 26, 64, .95);
+        .menu-toggle {
+          width: 768px;
+          padding-top: $primari_margin;
+          margin-bottom: 0;
+          .menu-toggle-icon {
+            span {
+              border-color: #fff;
+              &::before {
+                border-color: #fff;
+              }
+              &::after {
+                border-color: #fff;
+              }
+            }
+          }
+          > span {
+            margin-left: 28px;
+            color: #fff;
+          }
+        }
+        .main-menu {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          width: 768px;
+          padding-top: $primari_margin;
+          padding-left: 50px;
+          box-sizing: border-box;
+          overflow: auto;
+          a {
+            display: block;
+            color: #fff;
+            padding: 10px 0 7px;
+            margin: 0 0 10px 0;
+          }
+        }
+        .languege-toggle {
+          display: none;
+        }
+      }
+    }
+    .menu-toggle {
+      display: flex;
+      min-height: 20px;
+      height: 20px;
+      &.active {
+        .menu-toggle-icon {
+          span {
+            display: none;
+          }
+          &::before {
+            border-color: #fff;
+            border-width: 2px;
+            transform-origin: center;
+            transform: rotate(-45deg) translateY(12px);
+          }
+          &::after {
+            border-color: #fff;
+            border-width: 2px;
+            width: 25px;
+            transform-origin: center;
+            transform: rotate(45deg) translateY(-12px);
+          }
+        }
+      }
+      .menu-toggle-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 25px;
+        span {
+          width: 100%;
+          transform-origin: center;
+          border-top: 3px solid $color_violet;
+        }
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 25px;
+          height: 0;
+          border-top: 3px solid $color_violet;
+          content: '';
+        }
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 16px;
+          height: 0;
+          border-top: 3px solid $color_violet;
+          content: '';
+        }
+      }
+      > span {
+        margin-left: 20px;
+        color: $color_violet;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+    }
+    .main-menu {
+      display: none;
+    }
+    .languege-toggle {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      top: 0;
+      height: 50px;
+      font-size: 16px;
+      line-height: 1;
+      transform: translateY(-5px);
+      li:first-child {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  /*----- first screen -----*/
+  .video-wrapper {
+    .main-title-container {
+      h1 {
+        max-width: $grid_content;
+        span {
+          &:first-child {
+            font-size: 34px;
+          }
+          &.massage {
+            font-size: 56px;
+          }
+          &:last-child {
+            font-size: 37px;
+          }
+        }
+      }
+    }
+  }
+  .how-it-works {
+    background-image: none;
+  }
+  .permisions-wrapper {
+    max-width: $grid_content;
+    padding-top: $primari_margin;
+    .wellness-title {
+      margin-bottom: $title_marg_bottom;
+      @include title();
+    }
+    > p {
+      margin-bottom: $primari_margin;
+    }
+    .permisions {
+      .permision-img {
+        width: 338px;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      .permition-items {
+        &:not(:last-child) {
+          padding-top: 0;
+        }
+        .permisions-item {
+          width: 190px;
+          margin-bottom: 15px;
+          padding: 25px;
+          font-size: 14px;
+          &.right-arrow {
+            min-height: 138px;
+            margin-right: 22px;
+            margin-bottom: 15px;
+          }
+          &.left-arrow {
+            min-height: 138px;
+            margin-left: 22px;
+          }
+          &.top-arrow {
+            width: 340px;
+            margin-top: 24px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  /*----- infographic -----*/
+  .steps {
+    width: $grid_content;
+    margin-bottom: $primari_margin;
+    > p {
+      font-size: 20px;
+      margin: $primari_margin auto;
+    }
+    .infographic {
+      flex-wrap: wrap;
+      > div {
+        width: 192px;
+        &:first-child {
+          width: 192px;
+          > div:last-child {
+            padding-left: 0;
+          }
+        }
+        &:last-child {
+          width: 100%;
+          .demo-button-wrapper {
+            justify-content: center;
+            background-color: transparent;
+            border-radius: 0;
+            padding: 0;
+            margin-top: 35px;
+            .demo-button {
+              margin: 0;
+            }
+          }
+        }
+        &:first-child .infographic-container-svg {
+          padding-left: 0;
+        }
+        &:nth-child(4) {
+          .infographic-container-svg {
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            div::after {
+              display: none;
+            }
+          }
+        }
+        .infographic-text {
+          width: 170px;
+        }
+      }
+    }
+  }
+  /*----- Main content -----*/
+  .investition {
+    width: $grid_content;
+    padding-bottom: $primari_margin;
+    .wellness-title {
+      margin: $primari_margin auto $title_marg_bottom auto;
+      &::before {
+        width: 25%;
+        border-width: 1px;
+      }
+      &::after {
+        width: 25%;
+        border-width: 1px;
+      }
+    }
+    .describtion {
+      width: $grid_content;
+      padding: 0 10px;
+      box-sizing: border-box;
+      p:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  /*----- Advantage -----*/
+  @mixin testimonials {
+    > div {
+      width: 374px;
+      min-height: 456px;
+      max-height: 600px;
+      margin: 0 12px 35px 12px;
+    }
+    .bx-viewport {
+      max-height: 456px;
+      min-height: 456px;
+    }
+  }
+  .privilege-wrapper {
+    .privilege-participant {
+      @include privileg-blocks();
+      > div {
+        margin-right: 20px;
+        li {
+          &::before {
+            background:  url('../img/spright.png') no-repeat;
+            background-position: -108px 100%;
+          }
+        }
+      }
+    }
+    .privilege-employer {
+      @include privileg-blocks();
+      > div {
+        margin-left: 40px;
+        li {
+          &::before {
+            background: url('../img/spright.png') no-repeat;
+            background-position: -88px 100%;
+          }
+        }
+      }
+    }
+    .wellness-title {
+      width: $grid_content;
+      &::before {
+        border-width: 1px;
+      }
+      &::after {
+        border-width: 1px;
+      }
+    }
+    .reviews-participants {
+      @include testimonials();
+    }
+    .reviews-employers {
+      @include testimonials();
+    }
+  }
+  /*-----    4.06 reviews    ------*/
+  /*-----  privilege -----*/
+  .privilege {
+    min-height: 834px;
+    padding: $primari_margin 0 50px 0;
+    .content {
+      width: $grid_content;
+      > div {
+        &.permision-order-item:nth-child(2n-1) {
+          padding-left: 0;
+        }
+        .permisions-order-text {
+          width: 240px;
+          font-size: 18px;
+          p:first-child {
+            margin-bottom: 15px;
+          }
+        }
+      }
+      .bonus {
+        width: 80%;
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+  }
+  .whit-wrapper {
+    background-image: none;
+  }
+  .command {
+    .content {
+      width: $grid_content;
+      .wellness-title {
+        &::before {
+          width: 30%;
+          border-width: 1px;
+        }
+        &::after {
+          width: 30%;
+          border-width: 1px;
+        }
+      }
+      .legend {
+        width: $grid_content;
+        margin-bottom: $primari_margin;
+      }
+      .company-command {
+        padding: 0 10px;
+        figure {
+          padding: 36px 0 25px 0;
+          > p {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 20px;
+            img {
+              height: 130px;
+              border-width: 3px;
+            }
+          }
+          figcaption {
+            p:first-child {
+              font-size: 16px;
+            }
+            p:last-child {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cliens-carusel {
+    width: $grid_content;
+    margin-bottom: 30px;
+    .wellness-title {
+      margin-bottom: 30px;
+      &::before {
+        border-width: 1px;
+        width: 30%;
+      }
+      &::after {
+        border-width: 1px;
+        width: 30%;
+      }
+    }
+  }
+  .faq {
+    width: $grid_content;
+    .wellness-title {
+      &::before {
+        border-width: 1px;
+      }
+      &::after {
+        border-width: 1px;
+      }
+    }
+    .faq-wrapper {
+      .faq-item {
+        .faq-title {
+          padding-right: 19px;
+          font-size: 16px;
+          &::before {
+            top: 10px;
+          }
+          &::after {
+            top: 1px;
+          }
+        }
+      }
+    }
+  }
+  .main-form {
+    .wellness-title {
+      &::before {
+        width: 10%;
+        border-width: 1px;
+      }
+      &::after {
+        width: 10%;
+        border-width: 1px;
+      }
+    }
+    form {
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+    .input-group {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+  .wellnessz-form {
+    .content {
+      width: $grid_content;
+    }
+  }
+  .interest-info {
+    background: url('../img/interest-info-bg-tb.jpg') top center no-repeat rgba(88,88,88,.66);
+    background-size: cover;
+    .interest-info-wrapper {
+      width: $grid-content;
+      padding: 0 10px;
+    }
+  }
+  .price-form-wrapper .main-form .wellness-title:after,
+  .price-form-wrapper .main-form .wellness-title:before {
+    width: 30%;
+  }
+  /*-------------- footer --------------*/
+  footer {
+    .footer-wrapper {
+      width: $grid_content;
+      padding: 0 10px;
+      box-sizing: border-box;
+      div {
+        &:first-child {
+          min-width: 250px;
+          .wellness-tel {
+            width: 100%;
+            margin-top: 18px;
+            font-size: 16px;
+          }
+        }
+        &:last-child {
+          width: 250px;
+          text-align: right;
+          p {
+            font-size: 14px;
+            span {
+              display: block;
+              line-height: 22px;
+              &:not(:last-child) {
+                margin-right: 0;
+                &:nth-child(2) {
+                  margin-right: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /*----- 4.14 Fixed buttons -----*/
+  .to-top-button {
+    bottom: 264px;
+    right: 6%;
+  }
+  /*----- 4.15 Pop-up windows -----*/
+  .callback-button-container {
+    bottom: 336px;
+  }
+  .popup-give-chance-window {
+    .popup-give-chance-container {
+      width: $grid_content;
+      padding: 0 10px;
+      box-sizing: border-box;
+      margin-left: -($grid_content/2);
+      .main-form form {
+        width: 644px;
+        margin: 0 auto;
+        .input-group input {
+          width: 100%;
+        }
+      }
+    }
+  }
+  /*------------- prices block ------------*/
+  .prices-link .content-grid .legend.white {
+    max-width: 650px;
+    margin: 0 auto 27px auto;
+  }
+  /*------------ prices page -----------*/
+  .price-form-wrapper {
+    .form-title-wrapper {
+      .wellness-title {
+        &::before {
+          width: 25%;
+        }
+        &::after {
+          width: 25%;
+        }
+      }
+    }
+    .part-price-form {
+      max-width:748px;
+      .item-form-container {
+        padding: 25px 16px;
+        height: 313px;
+      }
+      .time-form-wrapper {
+          span.wpcf7-list-item {
+            display: table;
+            margin: 0 auto;
+            &.first {
+              margin-bottom: 25px;
+            }
+            &.last {
+              margin-left: 0;
+            }
+          }
+        }
+      .number-form-wrapper {
+        .item-form-title {
+          margin-bottom: 80px;
+        }
+      }
+      .periodisiti-form-wrapper {
+        flex-direction: column;
+        > div {
+          flex-direction: row;
+          height: 55px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
